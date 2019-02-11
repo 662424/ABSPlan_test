@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="91f3d1c2-cabd-453e-8007-a48055fb1516" activeEnvironment="Default" name="SoaDemo" soapui-version="5.4.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="06ecab20-d72e-4779-ae6a-2443dde4d763" wsaVersion="NONE" name="ServiceSoap" type="wsdl" bindingName="{http://tempuri.org/}ServiceSoap" soapVersion="1_1" anonymous="optional" definition="http://itsb2-wls-test:6620/ABSPlanService/ABSplanProxyService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://itsb2-wls-test:6620/ABSPlanService/ABSplanProxyService?wsdl"><con:part><con:url>http://itsb2-wls-test:6620/ABSPlanService/ABSplanProxyService?wsdl</con:url><con:content><![CDATA[<WL5G3N0:definitions targetNamespace="http://tempuri.org/" xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N1="http://tempuri.org/" xmlns:WL5G3N2="http://schemas.xmlsoap.org/wsdl/soap/">
+  <WL5G3N0:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:WL5G3N3="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:tns="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <s:element name="GetCompanyAgreementsInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="0" name="customerKey" type="tns:CustomerKey"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CustomerKey">
+        <s:sequence>
+          <s:element maxOccurs="1" minOccurs="0" name="KeyValue" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="1" name="KeyType" type="tns:CustomerKeyType"/>
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="CustomerKeyType">
+        <s:restriction base="s:string">
+          <s:enumeration value="CVR"/>
+          <s:enumeration value="KIS"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetCompanyAgreementsInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="0" name="GetCompanyAgreementsInfoResult" type="tns:CustomerAgreementInfo"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CustomerAgreementInfo">
+        <s:sequence>
+          <s:element maxOccurs="1" minOccurs="1" name="CustomerExists" type="s:boolean"/>
+          <s:element maxOccurs="1" minOccurs="1" name="GracePeriodDays" type="s:int"/>
+          <s:element maxOccurs="1" minOccurs="1" name="RequiresManualOrderProcessing" type="s:boolean"/>
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </WL5G3N0:types>
+  <WL5G3N0:message name="GetCompanyAgreementsInfoSoapIn">
+    <WL5G3N0:part element="WL5G3N1:GetCompanyAgreementsInfo" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="GetCompanyAgreementsInfoSoapOut">
+    <WL5G3N0:part element="WL5G3N1:GetCompanyAgreementsInfoResponse" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:portType name="ServiceSoap">
+    <WL5G3N0:operation name="GetCompanyAgreementsInfo">
+      <WL5G3N0:documentation>Gets basic information regarding the handling of agreements for customer</WL5G3N0:documentation>
+      <WL5G3N0:input message="WL5G3N1:GetCompanyAgreementsInfoSoapIn"/>
+      <WL5G3N0:output message="WL5G3N1:GetCompanyAgreementsInfoSoapOut"/>
+    </WL5G3N0:operation>
+  </WL5G3N0:portType>
+  <WL5G3N0:binding name="ServiceSoap" type="WL5G3N1:ServiceSoap">
+    <WL5G3N2:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <WL5G3N0:operation name="GetCompanyAgreementsInfo">
+      <WL5G3N2:operation soapAction="http://tempuri.org/GetCompanyAgreementsInfo" style="document"/>
+      <WL5G3N0:input>
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+  </WL5G3N0:binding>
+  <WL5G3N0:service name="ServiceSoapQSService">
+    <WL5G3N0:port binding="WL5G3N1:ServiceSoap" name="ServiceSoapQSPort">
+      <WL5G3N2:address location="http://10.150.250.24:6620/ABSPlanService/ABSplanProxyService"/>
+    </WL5G3N0:port>
+  </WL5G3N0:service>
+</WL5G3N0:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://10.150.250.24:6620/ABSPlanService/ABSplanProxyService</con:endpoint></con:endpoints><con:operation id="f3de7bf4-6404-409e-9307-756ef10df033" isOneWay="false" action="http://tempuri.org/GetCompanyAgreementsInfo" name="GetCompanyAgreementsInfo" bindingOperationName="GetCompanyAgreementsInfo" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="dd4cf881-24aa-4a98-9047-35313a740c21" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.150.250.24:6620/ABSPlanService/ABSplanProxyService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:GetCompanyAgreementsInfo>\r
+         <!--Optional:-->\r
+         <tem:customerKey>\r
+            <!--Optional:-->\r
+            <tem:KeyValue>871-05-15-10.03.33.710979</tem:KeyValue>\r
+            <tem:KeyType>CVR</tem:KeyType>\r
+         </tem:customerKey>\r
+      </tem:GetCompanyAgreementsInfo>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:username>r18555</con:username><con:password>Tdc@1234</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/GetCompanyAgreementsInfo"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
