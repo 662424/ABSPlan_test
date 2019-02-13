@@ -6,28 +6,33 @@
   <artifactId>ABSPlanService</artifactId>
   <version>1.0-SNAPSHOT</version>
   <description></description>
-  
   <pluginRepositories>
-  <pluginRepository>
-  <id>smartbear-sweden-plugin-repository</id>
-  <url>http://www.sopaui.org/repository/maven2/</url>
-  </pluginRepository>
+    <pluginRepository>
+      <id>smartbear-sweden-plugin-repository</id>
+      <url>http://www.soapui.org/repository/maven2/</url>
+    </pluginRepository>
   </pluginRepositories>
   
-  <profiles>
-  <profile>
-  <id>serverConfig-dev</id>
-  <activation>
-    <property>
-    <name>env</name>
-    <value>dev</value>
-    </property>
-   </activation>
-   <properties>
-   <serverUrl>http://tglbpeludvtst01:5010</serverUrl>
-   <user>m48251</user>
-   <password>12345678</password>
-   </properties>
-   </profile>
-   </profiles>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.github.redfish4ktc.soapui</groupId>
+        <artifactId>maven-soapui-extension-plugin</artifactId>
+        <version>4.6.4.1</version>
+        <configuration>
+          <projectFile>SoaDemo-soapui-project.xml</projectFile>
+          <junitReport>true</junitReport>
+          <ouputFolder>target/junit-reports/</ouputFolder>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>pre-integration-test</phase>
+            <goals>
+              <goal>test</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 </project>
